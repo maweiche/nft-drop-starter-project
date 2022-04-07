@@ -2,6 +2,7 @@ import './App.css';
 import twitterLogo from './assets/twitter-logo.svg';
 // STEP 5 SET WALLET DATA IN REACT STATE
 import React, { useEffect, useState } from 'react';
+import CandyMachine from './CandyMachine';
 
 // Constants
 const TWITTER_HANDLE = 'TopShotTurtles';
@@ -73,6 +74,8 @@ const App = () => {
           <p className="sub-text">NFT drop machine with fair mint</p>
           {!walletAddress && renderNotConnectedContainer()}
         </div>
+        {/* Check for walletAddress and then pass in walletAddress */}
+      {walletAddress && <CandyMachine walletAddress={window.solana} />}
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
           <a
@@ -80,10 +83,10 @@ const App = () => {
             href={TWITTER_LINK}
             target="_blank"
             rel="noreferrer"
-          >{`built for @${TWITTER_HANDLE}`}</a>
+          >{`built on @${TWITTER_HANDLE}`}</a>
         </div>
       </div>
-    </div>
+    </div>  
   );
 };
 
